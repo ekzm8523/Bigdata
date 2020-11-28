@@ -47,3 +47,7 @@ sns.countplot('Pclass', hue='Survived', data=df, ax=ax[1])
 ax[1].set_title('Pclass: Survived vs Dead', y=y_position)
 plt.show()
 
+sex_df = df.groupby(['SibSp','Survived'])['Survived'].count().unstack('Survived')
+sex_df.plot(kind='bar', figsize=(20,10))
+plt.title('SibSp')
+plt.show()
